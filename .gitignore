@@ -1,0 +1,8 @@
+*.class
+*.in
+*.out
+*~
+*.iml
+out/
+.idea/
+INFO/
