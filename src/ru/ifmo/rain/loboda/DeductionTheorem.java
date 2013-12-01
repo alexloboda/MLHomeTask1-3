@@ -28,7 +28,7 @@ public class DeductionTheorem {
                     printWriter.close();
                     System.exit(0);
                 }
-                ArrayList<Expression> converted = ClassicalAxioms.deductionConvert(hyps, proof);
+                ArrayList<Expression> converted = ClassicalAxioms.deductionStep(hyps, proof);
                 for (Expression e : converted) {
                     printWriter.println(e);
                 }

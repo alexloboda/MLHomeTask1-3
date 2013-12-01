@@ -1,9 +1,7 @@
 package ru.ifmo.rain.loboda;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Prover {
     public static void main(String[] args) throws InterruptedException {
@@ -65,7 +63,21 @@ public class Prover {
             ArrayList<Expression> proof = new ArrayList<Expression>();
             boolean good = expression.getMeasure(hypothethis, proof, new HashMap<String, Boolean>());
             if (!good) {
-                throw new ProverException("Выражение недоказуемо");
+                String error = "Высказывание ложно при ";
+                Set<Character> vars = hypothethis.keySet();
+                Iterator<Character> it = vars.iterator();
+                while(it.hasNext()){
+                    char var = it.next();
+                    if(hypothethis.get(var)){
+                        error += var;
+                        error += "=И, ";
+                    } else {
+                        error += var;
+                        error += "=Л, ";
+                    }
+                }
+                error = error.substring(0, error.length() - 2);
+                throw new ProverException(error);
             }
             return proof;
         }

@@ -13,7 +13,6 @@ public class Checker {
 
     private void init(List<Expression> proof) {
         this.proof = proof;
-        int cnt = 0;
         proved = new HashMap<Expression, Boolean>();
         iterator = proof.listIterator();
         rightParts = new HashMap<Expression, List<Expression>>();

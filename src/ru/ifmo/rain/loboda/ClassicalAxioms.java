@@ -75,17 +75,4 @@ public class ClassicalAxioms {
         }
         return newProof;
     }
-
-    public static ArrayList<Expression> deductionConvert(ArrayList<Expression> hypothesis, ArrayList<Expression> proof) throws Exception {
-        while (!hypothesis.isEmpty()) {
-            ArrayList<Expression> newProof = deductionStep(hypothesis, proof);
-            hypothesis.remove(hypothesis.get(hypothesis.size() - 1));
-            proof = newProof;
-        }
-        ArrayList<Expression> list = new ArrayList<Expression>();
-        for (Expression e : proof) {
-            list.add(e);
-        }
-        return list;
-    }
 }
